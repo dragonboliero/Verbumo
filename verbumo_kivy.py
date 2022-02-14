@@ -1,8 +1,11 @@
 from kivymd.app import MDApp
 from kivy.lang.builder import Builder   
 from kivy.uix.screenmanager  import Screen,ScreenManager
+from kivymd.uix.label import MDLabel
 import functions as func
 
+class GridSquare(MDLabel):
+    pass
 
 class SManager(ScreenManager):
     pass
