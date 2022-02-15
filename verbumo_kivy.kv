@@ -11,9 +11,16 @@ SManager:
                 rectangle:self.x,self.y,self.width,self.height
         text:root.letter
         halign:'center'
+<MDCard>:
+    radius: [dp(4),dp(4),dp(4),dp(4)]
+    elevation: 30
+    md_bg_color:0.62,0.66,0.73,1
+<MDLabel>:
+    color:(1,1,1,1)
+
 
 <GameScreen>
-    id:'GameScreen'
+    name:'GameScreen'
     canvas.before:
         Color:
             rgba: 0.23,0.215,0.215,1
@@ -27,6 +34,7 @@ SManager:
             MDLabel:
                 text:'Verbumo'
                 halign:'center'
+                font_style:'H3'
         GridLayout:
             cols:5
             rows:6
@@ -40,6 +48,7 @@ SManager:
                         rgba:(1,1,1,1)
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
+                id:oneone
                 text:'1'
                 halign:'center'
             MDLabel:
@@ -290,38 +299,48 @@ SManager:
                     spacing:10
                     pos_hint:{'center_x':0.5}
                     MDCard:
+                        on_release: app.provide_input('Ą');
                         MDLabel:
                             text:'Ą'
                             halign:'center'
+                        
                     MDCard:
+                        on_release: app.provide_input('Ć');
                         MDLabel:
                             text:'Ć'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Ę');
                         MDLabel:
                             text:'Ę'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Ł');
                         MDLabel:
                             text:'Ł'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Ó');
                         MDLabel:
                             text:'Ó'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Ś');
                         MDLabel:
                             text:'Ś'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Ń');
                         MDLabel:
                             text:'Ń'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Ż');
                         MDLabel:
                             text:'Ż'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Ź');
                         MDLabel:
                             text:'Ź'
                             halign:'center'  
@@ -333,42 +352,52 @@ SManager:
                     spacing:10
                     pos_hint:{'center_x':0.5}                                      
                     MDCard:
+                        on_release: app.provide_input('Q');
                         MDLabel:
                             text:'Q'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('W');
                         MDLabel:
                             text:'W'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('E');
                         MDLabel:
                             text:'E'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('R');
                         MDLabel:
                             text:'R'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('T');
                         MDLabel:
                             text:'T'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Y');
                         MDLabel:
                             text:'Y'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('U');
                         MDLabel:
                             text:'U'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('I');
                         MDLabel:
                             text:'I'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('O');
                         MDLabel:
                             text:'O'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('P');
                         MDLabel:
                             text:'P'
                             halign:'center'
@@ -380,38 +409,47 @@ SManager:
                     spacing:10
                     pos_hint:{'center_x':0.5}                                      
                     MDCard:
+                        on_release: app.provide_input('A');
                         MDLabel:
                             text:'A'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('S');
                         MDLabel:
                             text:'S'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('D');
                         MDLabel:
                             text:'D'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('F');
                         MDLabel:
                             text:'F'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('G');
                         MDLabel:
                             text:'G'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('H');
                         MDLabel:
                             text:'H'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('J');
                         MDLabel:
                             text:'J'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('K');
                         MDLabel:
                             text:'K'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('L');
                         MDLabel:
                             text:'L'
                             halign:'center'
@@ -423,38 +461,47 @@ SManager:
                     spacing:10
                     pos_hint:{'center_x':0.5}                                      
                     MDCard:
+                        on_release: app.check_user_word()
                         MDLabel:
                             text:'ENTER'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('Z');
                         MDLabel:
                             text:'Z'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('X');
                         MDLabel:
                             text:'X'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('C');
                         MDLabel:
                             text:'C'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('V');
                         MDLabel:
                             text:'V'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('B');
                         MDLabel:
                             text:'B'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('N');
                         MDLabel:
                             text:'N'
                             halign:'center'
                     MDCard:
+                        on_release: app.provide_input('M');
                         MDLabel:
                             text:'M'
                             halign:'center'
                     MDCard:
+                        on_release:app.delete_last_user_letter();
                         MDLabel:
                             text:'<-'
                             halign:'center'
