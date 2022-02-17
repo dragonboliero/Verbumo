@@ -22,18 +22,19 @@ class Verbumo (MDApp):
         app_uix = Builder.load_file('verbumo_kivy.kv')
         return app_uix
     def provide_input(self,letter):
-        if self.line_position == 1:
-            self.root.get_screen('GameScreen').ids.letter1line1.text = letter
-        if self.line_position == 2:
-            self.root.get_screen('GameScreen').ids.letter2line1.text = letter
-        if self.line_position == 3:
-            self.root.get_screen('GameScreen').ids.letter3line1.text = letter
-        if self.line_position == 4:
-            self.root.get_screen('GameScreen').ids.letter4line1.text = letter
-        if self.line_position == 5:
-            self.root.get_screen('GameScreen').ids.letter5line1.text = letter
-
         if self.line_position < 6:
+            if self.line_position == 1:
+                self.root.get_screen('GameScreen').ids.letter1line1.text = letter
+            if self.line_position == 2:
+                self.root.get_screen('GameScreen').ids.letter2line1.text = letter
+            if self.line_position == 3:
+                self.root.get_screen('GameScreen').ids.letter3line1.text = letter
+            if self.line_position == 4:
+                self.root.get_screen('GameScreen').ids.letter4line1.text = letter
+            if self.line_position == 5:
+                self.root.get_screen('GameScreen').ids.letter5line1.text = letter
+
+            
             self.current_user_word = self.current_user_word + letter
             self.line_position += 1
 
@@ -77,10 +78,30 @@ class Verbumo (MDApp):
             
     
     def delete_last_user_letter(self):
-        if self.current_user_word != '':
+        if self.line_position > 1:
+            self.line_position -= 1
+            print(self.line_position)
+            self.current_user_word = self.current_user_word[:-1]
+            if self.line_position == 2:
+                self.root.get_screen('GameScreen').ids.letter2line1.text = ''
+                self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (0,0,0,0)
+            if self.line_position == 3:
+                self.root.get_screen('GameScreen').ids.letter3line1.text = ''
+                self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (0,0,0,0)
+            if self.line_position == 4:
+                self.root.get_screen('GameScreen').ids.letter4line1.text = ''
+                self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,0,0,0)
+            if self.line_position == 5:
+                self.root.get_screen('GameScreen').ids.letter5line1.text = ''
+                self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,0,0,0)
+
+        if self.line_position == 1:
+            self.root.get_screen('GameScreen').ids.letter1line1.text = ''
+            self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (0,0,0,0)
+        """ if self.current_user_word != '':
             self.current_user_word = self.current_user_word[:-1]
             if self.line_position > 1:
                 self.line_position -=1
-            print(self.current_user_word)
+            print(self.current_user_word) """
 
 Verbumo().run()
