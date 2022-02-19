@@ -31,10 +31,23 @@ SManager:
         orientation:'vertical'
         BoxLayout:
             size_hint_y:0.15
-            MDLabel:
-                text:'Verbumo'
-                halign:'center'
-                font_style:'H3'
+            GridLayout:
+                cols:3
+                BoxLayout:
+                    size_hint_x:0.25
+                BoxLayout:
+                    MDLabel:
+                        text:'Verbumo'
+                        halign:'center'
+                        font_style:'H3' 
+                BoxLayout:
+                    size_hint_x:0.25
+                    MDLabel:
+                        text:'Wynik:'
+                    MDLabel:
+                        id:score
+                        text:'0'
+                        halign:'left'
         GridLayout:
             cols:5
             rows:6
