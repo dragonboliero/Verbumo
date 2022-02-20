@@ -17,6 +17,7 @@ class GameScreen(Screen):
 class Verbumo (MDApp):
     def build(self):
         self.current_word = func.pick_random_word('5')
+        self.current_line = 1
         self.dictionary = func.words_dictionary('5')
         self.current_user_word = ''
         self.score = 0
@@ -25,17 +26,32 @@ class Verbumo (MDApp):
         app_uix = Builder.load_file('verbumo_kivy.kv')
         return app_uix
     def provide_input(self,letter):
+        #If not all letters have been filled
         if self.line_position < 6:
-            if self.line_position == 1:
-                self.root.get_screen('GameScreen').ids.letter1line1.text = letter
-            if self.line_position == 2:
-                self.root.get_screen('GameScreen').ids.letter2line1.text = letter
-            if self.line_position == 3:
-                self.root.get_screen('GameScreen').ids.letter3line1.text = letter
-            if self.line_position == 4:
-                self.root.get_screen('GameScreen').ids.letter4line1.text = letter
-            if self.line_position == 5:
-                self.root.get_screen('GameScreen').ids.letter5line1.text = letter
+            #If the user is in the first line
+            if self.current_line == 1:
+                if self.line_position == 1:
+                    self.root.get_screen('GameScreen').ids.letter1line1.text = letter
+                if self.line_position == 2:
+                    self.root.get_screen('GameScreen').ids.letter2line1.text = letter
+                if self.line_position == 3:
+                    self.root.get_screen('GameScreen').ids.letter3line1.text = letter
+                if self.line_position == 4:
+                    self.root.get_screen('GameScreen').ids.letter4line1.text = letter
+                if self.line_position == 5:
+                    self.root.get_screen('GameScreen').ids.letter5line1.text = letter
+            #If the user is in the second line
+            if self.current_line == 2:
+                if self.line_position == 1:
+                    self.root.get_screen('GameScreen').ids.letter1line2.text = letter
+                if self.line_position == 2:
+                    self.root.get_screen('GameScreen').ids.letter2line2.text = letter
+                if self.line_position == 3:
+                    self.root.get_screen('GameScreen').ids.letter3line2.text = letter
+                if self.line_position == 4:
+                    self.root.get_screen('GameScreen').ids.letter4line2.text = letter
+                if self.line_position == 5:
+                    self.root.get_screen('GameScreen').ids.letter5line2.text = letter
 
             
             self.current_user_word = self.current_user_word + letter
@@ -43,7 +59,7 @@ class Verbumo (MDApp):
 
     def check_user_word(self):
         #If the word has correct length
-        print(self.line_position)
+        print(f'letter position {self.line_position},line position {self.current_line}, user word {self.current_user_word}')
         if self.line_position == 6:
             if self.current_user_word == self.current_word:
                 correct_word = MDDialog(text='Hasło odgadnięte!')
@@ -58,41 +74,86 @@ class Verbumo (MDApp):
                     #Check letters with correct answer and assign appropriate background color to it.
                     for letter_index in range (self.line_position-1):
                         if self.current_user_word[letter_index] in self.current_word:
-
+                            #If currently checked letter is in the answer in the same position
                             if self.current_user_word[letter_index] == self.current_word[letter_index]:
-                                if letter_index+1 == 1:
-                                    self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (0,1,0,1)
-                                if letter_index+1 == 2:
-                                    self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (0,1,0,1)
-                                if letter_index+1 == 3:
-                                    self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (0,1,0,1)
-                                if letter_index+1 == 4:
-                                    self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,1,0,1)
-                                if letter_index+1 == 5:
-                                    self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,1,0,1)
+                                if self.current_line == 1:
+                                    if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,1,0,1)
+                                if self.current_line == 2:
+                                    if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line2.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line2.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line2.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line2.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line2.md_bg_color = (0,1,0,1)
+                            #If the currently checked letter is in the answer but in different position
                             else:
-                                if letter_index+1 == 1:
-                                    self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (1,0.8,0,1)
-                                if letter_index+1 == 2:
-                                    self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (1,0.8,0,1)
-                                if letter_index+1 == 3:
-                                    self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (1,0.8,0,1)
-                                if letter_index+1 == 4:
-                                    self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (1,0.8,0,1)
-                                if letter_index+1 == 5:
-                                    self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (1,0.8,0,1)
+                                if self.current_line == 1:
+                                    if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (1,0.8,0,1)
+                                if self.current_line == 2:
+                                    if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line2.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line2.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line2.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line2.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line2.md_bg_color = (1,0.8,0,1)
+                                    
+                        #If the currently checked letter is not in the answer
                         else:
-                            if letter_index+1 == 1:
-                                    self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (0,0,0,1)                
-                            if letter_index+1 == 2:
-                                    self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (0,0,0,1)
-                            if letter_index+1 == 3:
-                                    self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (0,0,0,1)
-                            if letter_index+1 == 4:
-                                    self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,0,0,1)
-                            if letter_index+1 == 5:
-                                    self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,0,0,1)
-                    #If the word is not in the dictionary.
+                            if self.current_line == 1:
+                                if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (0,0,0,1)                
+                                if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,0,0,1)
+                            if self.current_line == 2:
+                                if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line2.md_bg_color = (0,0,0,1)                
+                                if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line2.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line2.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line2.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line2.md_bg_color = (0,0,0,1)
+                
+                    #Reset variables for a new line
+                    self.line_position = 1
+                    if self.current_line < 6:
+                        self.current_line +=1
+                    self.current_user_word = ''
+                #If the word is not in the dictionary.
                 else:
                     word_not_in_dictionary = MDDialog(text='Słowo nie znajduje się w słowniku! Podaj poprawne słowo.')
                     word_not_in_dictionary.open()
