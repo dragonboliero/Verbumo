@@ -62,7 +62,7 @@ SManager:
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
                 id:letter1line1
-                text:'1'
+                text:''
                 halign:'center'
             MDLabel:
                 canvas.before:
@@ -71,7 +71,7 @@ SManager:
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
                 id:letter2line1
-                text:'2'
+                text:''
                 halign:'center'
             MDLabel:
                 canvas.before:
@@ -80,7 +80,7 @@ SManager:
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
                 id:letter3line1
-                text:'3'
+                text:''
                 halign:'center'
             MDLabel:
                 canvas.before:
@@ -89,7 +89,7 @@ SManager:
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
                 id:letter4line1
-                text:'4'
+                text:''
                 halign:'center'
             MDLabel:
                 canvas.before:
@@ -98,7 +98,7 @@ SManager:
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
                 id:letter5line1
-                text:'5'
+                text:''
                 halign:'center'
             MDLabel:
                 id:letter1line2
@@ -107,7 +107,7 @@ SManager:
                         rgba:(1,1,1,1)
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
-                text:'1'
+                text:''
                 halign:'center'
             MDLabel:
                 id:letter2line2
@@ -116,7 +116,7 @@ SManager:
                         rgba:(1,1,1,1)
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
-                text:'2'
+                text:''
                 halign:'center'
             MDLabel:
                 id:letter3line2
@@ -125,7 +125,7 @@ SManager:
                         rgba:(1,1,1,1)
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
-                text:'3'
+                text:''
                 halign:'center'
             MDLabel:
                 id:letter4line2
@@ -134,7 +134,7 @@ SManager:
                         rgba:(1,1,1,1)
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
-                text:'4'
+                text:''
                 halign:'center'
             MDLabel:
                 id:letter5line2
@@ -143,7 +143,7 @@ SManager:
                         rgba:(1,1,1,1)
                     Line:
                         rectangle:self.x,self.y,self.width,self.height
-                text:'5'
+                text:''
                 halign:'center'
             MDLabel:
                 canvas.before:
@@ -485,7 +485,8 @@ SManager:
                     MDCard:
                         on_release: app.check_user_word()
                         MDLabel:
-                            text:'ENTER'
+                            markup:True
+                            text:'[b]ENTER[/b]'
                             halign:'center'
                     MDCard:
                         on_release: app.provide_input('Z');
