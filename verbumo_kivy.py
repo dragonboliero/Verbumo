@@ -1,3 +1,13 @@
+"""
+To do list:
+    *Make backspace button delete items in current line. Right now it 
+    always deletes letters from the first row.
+    *Create a function that will remove all user input after providing
+    correct answer or reaching answer limit.
+    *Score modifiers depending on user answers. The more correct 
+    letters in earlier tries te more points.
+"""
+
 from kivymd.app import MDApp
 from kivy.lang.builder import Builder   
 from kivy.uix.screenmanager  import Screen,ScreenManager
@@ -52,7 +62,18 @@ class Verbumo (MDApp):
                     self.root.get_screen('GameScreen').ids.letter4line2.text = letter
                 if self.line_position == 5:
                     self.root.get_screen('GameScreen').ids.letter5line2.text = letter
-
+            #If the user is inthe third line
+            if self.current_line == 3:
+                if self.line_position == 1:
+                    self.root.get_screen('GameScreen').ids.letter1line3.text = letter
+                if self.line_position == 2:
+                    self.root.get_screen('GameScreen').ids.letter2line3.text = letter
+                if self.line_position == 3:
+                    self.root.get_screen('GameScreen').ids.letter3line3.text = letter
+                if self.line_position == 4:
+                    self.root.get_screen('GameScreen').ids.letter4line3.text = letter
+                if self.line_position == 5:
+                    self.root.get_screen('GameScreen').ids.letter5line3.text = letter
             
             self.current_user_word = self.current_user_word + letter
             self.line_position += 1
@@ -87,6 +108,7 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,1,0,1)
                                     if letter_index+1 == 5:
                                         self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,1,0,1)
+
                                 if self.current_line == 2:
                                     if letter_index+1 == 1:
                                         self.root.get_screen('GameScreen').ids.letter1line2.md_bg_color = (0,1,0,1)
@@ -98,6 +120,18 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter4line2.md_bg_color = (0,1,0,1)
                                     if letter_index+1 == 5:
                                         self.root.get_screen('GameScreen').ids.letter5line2.md_bg_color = (0,1,0,1)
+
+                                if self.current_line == 3:
+                                    if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line3.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line3.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line3.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line3.md_bg_color = (0,1,0,1)
+                                    if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line3.md_bg_color = (0,1,0,1)
                             #If the currently checked letter is in the answer but in different position
                             else:
                                 if self.current_line == 1:
@@ -111,6 +145,7 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (1,0.8,0,1)
                                     if letter_index+1 == 5:
                                         self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (1,0.8,0,1)
+
                                 if self.current_line == 2:
                                     if letter_index+1 == 1:
                                         self.root.get_screen('GameScreen').ids.letter1line2.md_bg_color = (1,0.8,0,1)
@@ -122,7 +157,18 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter4line2.md_bg_color = (1,0.8,0,1)
                                     if letter_index+1 == 5:
                                         self.root.get_screen('GameScreen').ids.letter5line2.md_bg_color = (1,0.8,0,1)
-                                    
+
+                                if self.current_line == 3:
+                                    if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line3.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line3.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line3.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line3.md_bg_color = (1,0.8,0,1)
+                                    if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line3.md_bg_color = (1,0.8,0,1)    
                         #If the currently checked letter is not in the answer
                         else:
                             if self.current_line == 1:
@@ -136,6 +182,7 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,0,0,1)
                                 if letter_index+1 == 5:
                                         self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,0,0,1)
+
                             if self.current_line == 2:
                                 if letter_index+1 == 1:
                                         self.root.get_screen('GameScreen').ids.letter1line2.md_bg_color = (0,0,0,1)                
@@ -147,6 +194,18 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter4line2.md_bg_color = (0,0,0,1)
                                 if letter_index+1 == 5:
                                         self.root.get_screen('GameScreen').ids.letter5line2.md_bg_color = (0,0,0,1)
+                            
+                            if self.current_line == 3:
+                                if letter_index+1 == 1:
+                                        self.root.get_screen('GameScreen').ids.letter1line3.md_bg_color = (0,0,0,1)                
+                                if letter_index+1 == 2:
+                                        self.root.get_screen('GameScreen').ids.letter2line3.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 3:
+                                        self.root.get_screen('GameScreen').ids.letter3line3.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 4:
+                                        self.root.get_screen('GameScreen').ids.letter4line3.md_bg_color = (0,0,0,1)
+                                if letter_index+1 == 5:
+                                        self.root.get_screen('GameScreen').ids.letter5line3.md_bg_color = (0,0,0,1)
                 
                     #Reset variables for a new line
                     self.line_position = 1
