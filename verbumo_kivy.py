@@ -1,7 +1,5 @@
 """
 To do list:
-    *Make backspace button delete items in current line. Right now it 
-    always deletes letters from the first row.
     *Create a function that will remove all user input after providing
     correct answer or reaching answer limit.
     *Make keyboard keys change color when a letter is not resent in the 
@@ -374,20 +372,103 @@ class Verbumo (MDApp):
             print(self.line_position)
             self.current_user_word = self.current_user_word[:-1]
             if self.line_position == 2:
-                self.root.get_screen('GameScreen').ids.letter2line1.text = ''
-                self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (0,0,0,0)
+                if self.current_line == 1:
+                    self.root.get_screen('GameScreen').ids.letter2line1.text = ''
+                    self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (0,0,0,0)
+                if self.current_line == 2:
+                    self.root.get_screen('GameScreen').ids.letter2line2.text = ''
+                    self.root.get_screen('GameScreen').ids.letter2line2.md_bg_color = (0,0,0,0)
+                if self.current_line == 3:
+                    self.root.get_screen('GameScreen').ids.letter2line3.text = ''
+                    self.root.get_screen('GameScreen').ids.letter2line3.md_bg_color = (0,0,0,0)
+                if self.current_line == 4:
+                    self.root.get_screen('GameScreen').ids.letter2line4.text = ''
+                    self.root.get_screen('GameScreen').ids.letter2line4.md_bg_color = (0,0,0,0)
+                if self.current_line == 5:
+                    self.root.get_screen('GameScreen').ids.letter2line5.text = ''
+                    self.root.get_screen('GameScreen').ids.letter2line5.md_bg_color = (0,0,0,0)
+                if self.current_line == 6:
+                    self.root.get_screen('GameScreen').ids.letter2line6.text = ''
+                    self.root.get_screen('GameScreen').ids.letter2line6.md_bg_color = (0,0,0,0)
+
             if self.line_position == 3:
-                self.root.get_screen('GameScreen').ids.letter3line1.text = ''
-                self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (0,0,0,0)
+                if self.current_line == 1:
+                    self.root.get_screen('GameScreen').ids.letter3line1.text = ''
+                    self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (0,0,0,0)
+                if self.current_line == 2:
+                    self.root.get_screen('GameScreen').ids.letter3line2.text = ''
+                    self.root.get_screen('GameScreen').ids.letter3line2.md_bg_color = (0,0,0,0)
+                if self.current_line == 3:
+                    self.root.get_screen('GameScreen').ids.letter3line3.text = ''
+                    self.root.get_screen('GameScreen').ids.letter3line3.md_bg_color = (0,0,0,0)
+                if self.current_line == 4:
+                    self.root.get_screen('GameScreen').ids.letter3line4.text = ''
+                    self.root.get_screen('GameScreen').ids.letter3line4.md_bg_color = (0,0,0,0)
+                if self.current_line == 5:
+                    self.root.get_screen('GameScreen').ids.letter3line5.text = ''
+                    self.root.get_screen('GameScreen').ids.letter3line5.md_bg_color = (0,0,0,0)
+                if self.current_line == 6:
+                    self.root.get_screen('GameScreen').ids.letter3line6.text = ''
+                    self.root.get_screen('GameScreen').ids.letter3line6.md_bg_color = (0,0,0,0)
+
             if self.line_position == 4:
-                self.root.get_screen('GameScreen').ids.letter4line1.text = ''
-                self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,0,0,0)
+                if self.current_line == 1:
+                    self.root.get_screen('GameScreen').ids.letter4line1.text = ''
+                    self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (0,0,0,0)
+                if self.current_line == 2:
+                    self.root.get_screen('GameScreen').ids.letter4line2.text = ''
+                    self.root.get_screen('GameScreen').ids.letter4line2.md_bg_color = (0,0,0,0)
+                if self.current_line == 3:
+                    self.root.get_screen('GameScreen').ids.letter4line3.text = ''
+                    self.root.get_screen('GameScreen').ids.letter4line3.md_bg_color = (0,0,0,0)
+                if self.current_line == 4:
+                    self.root.get_screen('GameScreen').ids.letter4line4.text = ''
+                    self.root.get_screen('GameScreen').ids.letter4line4.md_bg_color = (0,0,0,0)
+                if self.current_line == 5:
+                    self.root.get_screen('GameScreen').ids.letter4line5.text = ''
+                    self.root.get_screen('GameScreen').ids.letter4line5.md_bg_color = (0,0,0,0)
+                if self.current_line == 6:
+                    self.root.get_screen('GameScreen').ids.letter4line6.text = ''
+                    self.root.get_screen('GameScreen').ids.letter4line6.md_bg_color = (0,0,0,0)
+
             if self.line_position == 5:
-                self.root.get_screen('GameScreen').ids.letter5line1.text = ''
-                self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,0,0,0)
+                if self.current_line == 1:
+                    self.root.get_screen('GameScreen').ids.letter5line1.text = ''
+                    self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (0,0,0,0)
+                if self.current_line == 2:
+                    self.root.get_screen('GameScreen').ids.letter5line2.text = ''
+                    self.root.get_screen('GameScreen').ids.letter5line2.md_bg_color = (0,0,0,0)
+                if self.current_line == 3:
+                    self.root.get_screen('GameScreen').ids.letter5line3.text = ''
+                    self.root.get_screen('GameScreen').ids.letter5line3.md_bg_color = (0,0,0,0)
+                if self.current_line == 4:
+                    self.root.get_screen('GameScreen').ids.letter5line4.text = ''
+                    self.root.get_screen('GameScreen').ids.letter5line4.md_bg_color = (0,0,0,0)
+                if self.current_line == 5:
+                    self.root.get_screen('GameScreen').ids.letter5line5.text = ''
+                    self.root.get_screen('GameScreen').ids.letter5line5.md_bg_color = (0,0,0,0)
+                if self.current_line == 6:
+                    self.root.get_screen('GameScreen').ids.letter5line6.text = ''
+                    self.root.get_screen('GameScreen').ids.letter5line6.md_bg_color = (0,0,0,0)
 
         if self.line_position == 1:
-            self.root.get_screen('GameScreen').ids.letter1line1.text = ''
-            self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (0,0,0,0)
+            if self.current_line == 1:
+                self.root.get_screen('GameScreen').ids.letter1line1.text = ''
+                self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (0,0,0,0)
+            if self.current_line == 2:
+                self.root.get_screen('GameScreen').ids.letter1line2.text = ''
+                self.root.get_screen('GameScreen').ids.letter1line2.md_bg_color = (0,0,0,0)
+            if self.current_line == 3:
+                self.root.get_screen('GameScreen').ids.letter1line3.text = ''
+                self.root.get_screen('GameScreen').ids.letter1line3.md_bg_color = (0,0,0,0)
+            if self.current_line == 4:
+                self.root.get_screen('GameScreen').ids.letter1line4.text = ''
+                self.root.get_screen('GameScreen').ids.letter1line4.md_bg_color = (0,0,0,0)
+            if self.current_line == 5:
+                self.root.get_screen('GameScreen').ids.letter1line5.text = ''
+                self.root.get_screen('GameScreen').ids.letter1line5.md_bg_color = (0,0,0,0)
+            if self.current_line == 6:
+                self.root.get_screen('GameScreen').ids.letter1line6.text = ''
+                self.root.get_screen('GameScreen').ids.letter1line6.md_bg_color = (0,0,0,0)
 
 Verbumo().run()
