@@ -114,6 +114,76 @@ class Verbumo (MDApp):
             self.current_user_word = self.current_user_word + letter
             self.line_position += 1
 
+    #Clears all lines from all user input
+    def clear_table(self):
+        #First line
+        self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter1line1.text = ''
+        self.root.get_screen('GameScreen').ids.letter2line1.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter2line1.text = ''
+        self.root.get_screen('GameScreen').ids.letter3line1.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter3line1.text = ''
+        self.root.get_screen('GameScreen').ids.letter4line1.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter4line1.text = ''
+        self.root.get_screen('GameScreen').ids.letter5line1.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter5line1.text = ''
+        #Second line
+        self.root.get_screen('GameScreen').ids.letter1line2.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter1line2.text = ''
+        self.root.get_screen('GameScreen').ids.letter2line2.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter2line2.text = ''
+        self.root.get_screen('GameScreen').ids.letter3line2.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter3line2.text = ''
+        self.root.get_screen('GameScreen').ids.letter4line2.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter4line2.text = ''
+        self.root.get_screen('GameScreen').ids.letter5line2.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter5line2.text = ''
+        #Third line
+        self.root.get_screen('GameScreen').ids.letter1line3.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter1line3.text = ''
+        self.root.get_screen('GameScreen').ids.letter2line3.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter2line3.text = ''
+        self.root.get_screen('GameScreen').ids.letter3line3.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter3line3.text = ''
+        self.root.get_screen('GameScreen').ids.letter4line3.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter4line3.text = ''
+        self.root.get_screen('GameScreen').ids.letter5line3.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter5line3.text = ''
+        #Fourth line
+        self.root.get_screen('GameScreen').ids.letter1line4.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter1line4.text = ''
+        self.root.get_screen('GameScreen').ids.letter2line4.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter2line4.text = ''
+        self.root.get_screen('GameScreen').ids.letter3line4.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter3line4.text = ''
+        self.root.get_screen('GameScreen').ids.letter4line4.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter4line4.text = ''
+        self.root.get_screen('GameScreen').ids.letter5line4.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter5line4.text = ''
+        #Fifth line
+        self.root.get_screen('GameScreen').ids.letter1line5.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter1line5.text = ''
+        self.root.get_screen('GameScreen').ids.letter2line5.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter2line5.text = ''
+        self.root.get_screen('GameScreen').ids.letter3line5.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter3line5.text = ''
+        self.root.get_screen('GameScreen').ids.letter4line5.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter4line5.text = ''
+        self.root.get_screen('GameScreen').ids.letter5line5.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter5line5.text = ''
+        #Sixth line
+        self.root.get_screen('GameScreen').ids.letter1line6.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter1line6.text = ''
+        self.root.get_screen('GameScreen').ids.letter2line6.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter2line6.text = ''
+        self.root.get_screen('GameScreen').ids.letter3line6.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter3line6.text = ''
+        self.root.get_screen('GameScreen').ids.letter4line6.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter4line6.text = ''
+        self.root.get_screen('GameScreen').ids.letter5line6.md_bg_color = (1,1,1,0)
+        self.root.get_screen('GameScreen').ids.letter5line6.text = ''
+
+
     def check_user_word(self):
         #If the word has correct length
         print(f'letter position {self.line_position},line position {self.current_line}, user word {self.current_user_word}')
@@ -124,6 +194,7 @@ class Verbumo (MDApp):
                 self.score +=100
                 self.root.get_screen('GameScreen').ids.score.text = str(self.score)
                 self.current_word = func.pick_random_word('5')
+                self.clear_table()
                 print(self.current_word)
             else:
                 #And it's in the dictionary
@@ -364,7 +435,7 @@ class Verbumo (MDApp):
         else:
             word_not_complete = MDDialog(text='Słowo musi składać się z 5 liter!')
             word_not_complete.open()
-            
+      
     
     def delete_last_user_letter(self):
         if self.line_position > 1:
