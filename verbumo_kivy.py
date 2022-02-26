@@ -1,7 +1,5 @@
 """
 To do list:
-    *Create a function that will remove all user input after providing
-    correct answer or reaching answer limit.
     *Make keyboard keys change color when a letter is not resent in the 
     current word.
     *Score modifiers depending on user answers. The more correct 
@@ -199,6 +197,14 @@ class Verbumo (MDApp):
             else:
                 #And it's in the dictionary
                 if self.current_user_word in self.dictionary:
+                    #If the answer in the last line was wrong
+                    if self.current_line == 6:
+                        lost_dialog = f'Porażka, prawidłową odpowiedzią było słowo: {self.current_word}'
+                        word_lost = MDDialog(text=lost_dialog)
+                        word_lost.open()
+                        self.current_word = func.pick_random_word('5')
+                        self.clear_table()
+                        print(self.current_word)
                     #Check letters with correct answer and assign appropriate background color to it.
                     for letter_index in range (self.line_position-1):
                         if self.current_user_word[letter_index] in self.current_word:
@@ -427,6 +433,7 @@ class Verbumo (MDApp):
                     if self.current_line < 6:
                         self.current_line +=1
                     self.current_user_word = ''
+
                 #If the word is not in the dictionary.
                 else:
                     word_not_in_dictionary = MDDialog(text='Słowo nie znajduje się w słowniku! Podaj poprawne słowo.')
