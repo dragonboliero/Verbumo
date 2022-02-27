@@ -189,22 +189,34 @@ class Verbumo (MDApp):
             if self.current_user_word == self.current_word:
                 correct_word = MDDialog(text='Hasło odgadnięte!')
                 correct_word.open()
-                self.score +=100
+                #Scoring principles
+                if self.current_line == 1:
+                    self.score +=100
+                if self.current_line == 2:
+                    self.score +=50
+                if self.current_line == 3:
+                    self.score +=25
+                if self.current_line == 4:
+                    self.score +=12
+                if self.current_line == 5:
+                    self.score +=6
+                if self.current_line == 6:
+                    self.score +=3
+
+                #Reset position variables
+                self.line_position = 1
+                self.current_line = 1
+                self.current_user_word=''
+
                 self.root.get_screen('GameScreen').ids.score.text = str(self.score)
                 self.current_word = func.pick_random_word('5')
                 self.clear_table()
                 print(self.current_word)
+                print(self.current_line)
             else:
                 #And it's in the dictionary
                 if self.current_user_word in self.dictionary:
-                    #If the answer in the last line was wrong
-                    if self.current_line == 6:
-                        lost_dialog = f'Porażka, prawidłową odpowiedzią było słowo: {self.current_word}'
-                        word_lost = MDDialog(text=lost_dialog)
-                        word_lost.open()
-                        self.current_word = func.pick_random_word('5')
-                        self.clear_table()
-                        print(self.current_word)
+                    
                     #Check letters with correct answer and assign appropriate background color to it.
                     for letter_index in range (self.line_position-1):
                         if self.current_user_word[letter_index] in self.current_word:
@@ -427,12 +439,26 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter4line6.md_bg_color = (0,0,0,1)
                                 if letter_index+1 == 5:
                                         self.root.get_screen('GameScreen').ids.letter5line6.md_bg_color = (0,0,0,1)
-                
+
+                    #If the answer in the last line was wrong
+                    if self.current_line == 6:
+                        lost_dialog = f'Porażka, prawidłową odpowiedzią było słowo: {self.current_word}'
+                        word_lost = MDDialog(text=lost_dialog)
+                        word_lost.open()
+                        #Reset position variables
+                        self.line_position = 1
+                        self.current_line = 0
+                        self.current_user_word=''
+                        self.current_word = func.pick_random_word('5')
+                        self.clear_table()
+                        print(self.current_word)
+
                     #Reset variables for a new line
-                    self.line_position = 1
-                    if self.current_line < 6:
-                        self.current_line +=1
-                    self.current_user_word = ''
+                    if self.current_line != 6:
+                        self.line_position = 1
+                        if self.current_line < 6:
+                            self.current_line +=1
+                        self.current_user_word = ''
 
                 #If the word is not in the dictionary.
                 else:
