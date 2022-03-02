@@ -6,15 +6,14 @@ To do list:
     letters in earlier tries te more points.
 """
 
+#Basic imports
 from kivymd.app import MDApp
 from kivy.lang.builder import Builder   
 from kivy.uix.screenmanager  import Screen,ScreenManager
 from kivymd.uix.label import MDLabel
 from kivymd.uix.dialog import MDDialog
 import functions as func
-
-class GridSquare(MDLabel):
-    pass
+    
 
 class SManager(ScreenManager):
     pass
@@ -22,21 +21,31 @@ class SManager(ScreenManager):
 class GameScreen(Screen):
     pass
 
+#Main App
 class Verbumo (MDApp):
     def build(self):
+        #Pick first correct answer
         self.current_word = func.pick_random_word('5')
+        #Set starting line
         self.current_line = 1
-        self.dictionary = func.words_dictionary('5')
-        self.current_user_word = ''
-        self.score = 0
+        #Set starting position in the grid's line
         self.line_position = 1
+        #Load appropriate dictionary
+        self.dictionary = func.words_dictionary('5')
+        #Variable holding user input
+        self.current_user_word = ''
+        #Variable holding user score
+        self.score = 0
         #Color variables
         self.correct_letter_color = (0,1,0,1)
         self.misplaced_letter_color = (1,0.8,0,1)
         self.wrong_letter_color = (0,0,0,1)                
         print(self.current_word)
+        #Load kv file
         app_uix = Builder.load_file('verbumo_kivy.kv')
         return app_uix
+
+    #Method for reading user input from the screen keyboard    
     def provide_input(self,letter):
         #If not all letters have been filled
         if self.line_position < 6:
@@ -113,7 +122,9 @@ class Verbumo (MDApp):
                 if self.line_position == 5:
                     self.root.get_screen('GameScreen').ids.letter5line6.text = letter
 
+            #Add the letter to user input variable
             self.current_user_word = self.current_user_word + letter
+            #Move letter position in current line
             self.line_position += 1
 
     #Clears all lines from all user input
@@ -186,11 +197,14 @@ class Verbumo (MDApp):
         self.root.get_screen('GameScreen').ids.letter5line6.text = ''
 
 
+    #Method checking if user provided word is the same as current word
     def check_user_word(self):
         #If the word has correct length
         print(f'letter position {self.line_position},line position {self.current_line}, user word {self.current_user_word}')
         if self.line_position == 6:
+            #If user provided correct word
             if self.current_user_word == self.current_word:
+                #Display congratulations dialog window
                 correct_word = MDDialog(text='Hasło odgadnięte!')
                 correct_word.open()
                 #Scoring principles
@@ -211,14 +225,16 @@ class Verbumo (MDApp):
                 self.line_position = 1
                 self.current_line = 1
                 self.current_user_word=''
-
+                #Change score label
                 self.root.get_screen('GameScreen').ids.score.text = str(self.score)
+                #Get new correct word
                 self.current_word = func.pick_random_word('5')
+                #Clear all user input
                 self.clear_table()
                 print(self.current_word)
                 print(self.current_line)
             else:
-                #And it's in the dictionary
+                #The word is in the dictionary but not correct
                 if self.current_user_word in self.dictionary:
                     
                     #Check letters with correct answer and assign appropriate background color to it.
@@ -447,12 +463,14 @@ class Verbumo (MDApp):
                     #If the answer in the last line was wrong
                     if self.current_line == 6:
                         lost_dialog = f'Porażka, prawidłową odpowiedzią było słowo: {self.current_word}'
+                        #Display dialog window stating the answer was wrong
                         word_lost = MDDialog(text=lost_dialog)
                         word_lost.open()
                         #Reset position variables
                         self.line_position = 1
                         self.current_line = 0
                         self.current_user_word=''
+                        #Get a new random correct word
                         self.current_word = func.pick_random_word('5')
                         self.clear_table()
                         print(self.current_word)
