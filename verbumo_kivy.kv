@@ -1,16 +1,6 @@
 SManager:
     GameScreen
 
-<GridSquare@MDLabel>:
-    letter:''
-    MDLabel:
-        canvas.before:
-            Color:
-                rgba:(1,1,1,1)
-            Line:
-                rectangle:self.x,self.y,self.width,self.height
-        text:root.letter
-        halign:'center'
 <MDCard>:
     radius: [dp(4),dp(4),dp(4),dp(4)]
     elevation: 30
@@ -341,6 +331,8 @@ SManager:
                     spacing:10
                     pos_hint:{'center_x':0.5}
                     MDCard:
+                        id:letter_ą
+                        disabled:False
                         on_release: app.provide_input('Ą');
                         MDLabel:
                             text:'Ą'
@@ -451,6 +443,8 @@ SManager:
                     spacing:10
                     pos_hint:{'center_x':0.5}                                      
                     MDCard:
+                        id:letter_a
+                        disabled:False
                         on_release: app.provide_input('A');
                         MDLabel:
                             text:'A'

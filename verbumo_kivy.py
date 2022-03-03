@@ -388,6 +388,12 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter5line6.md_bg_color = self.misplaced_letter_color        
                         #If the currently checked letter is not in the answer
                         else:
+                            #Disable keyboard button 
+                            if self.current_user_word[letter_index] == 'Ą':
+                                self.root.get_screen('GameScreen').ids.letter_ą.disabled = True               
+                            if self.current_user_word[letter_index] == 'A':
+                                self.root.get_screen('GameScreen').ids.letter_a.disabled = True               
+
                             if self.current_line == 1:
                                 if letter_index+1 == 1:
                                         self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = self.wrong_letter_color               
