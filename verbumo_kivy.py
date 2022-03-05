@@ -408,6 +408,27 @@ class Verbumo (MDApp):
                                 self.root.get_screen('GameScreen').ids.letter_ż.disabled = True
                             if self.current_user_word[letter_index] == 'Ź':
                                 self.root.get_screen('GameScreen').ids.letter_ź.disabled = True
+                            #Second keyboard line
+                            if self.current_user_word[letter_index] == 'Q':
+                                self.root.get_screen('GameScreen').ids.letter_q.disabled = True
+                            if self.current_user_word[letter_index] == 'W':
+                                self.root.get_screen('GameScreen').ids.letter_w.disabled = True
+                            if self.current_user_word[letter_index] == 'E':
+                                self.root.get_screen('GameScreen').ids.letter_e.disabled = True
+                            if self.current_user_word[letter_index] == 'R':
+                                self.root.get_screen('GameScreen').ids.letter_r.disabled = True
+                            if self.current_user_word[letter_index] == 'T':
+                                self.root.get_screen('GameScreen').ids.letter_t.disabled = True
+                            if self.current_user_word[letter_index] == 'Y':
+                                self.root.get_screen('GameScreen').ids.letter_y.disabled = True
+                            if self.current_user_word[letter_index] == 'U':
+                                self.root.get_screen('GameScreen').ids.letter_u.disabled = True
+                            if self.current_user_word[letter_index] == 'I':
+                                self.root.get_screen('GameScreen').ids.letter_i.disabled = True
+                            if self.current_user_word[letter_index] == 'O':
+                                self.root.get_screen('GameScreen').ids.letter_o.disabled = True
+                            if self.current_user_word[letter_index] == 'P':
+                                self.root.get_screen('GameScreen').ids.letter_p.disabled = True
                             #Third keyboard line
                             if self.current_user_word[letter_index] == 'A':
                                 self.root.get_screen('GameScreen').ids.letter_a.disabled = True               
