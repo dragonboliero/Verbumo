@@ -431,7 +431,38 @@ class Verbumo (MDApp):
                                 self.root.get_screen('GameScreen').ids.letter_p.disabled = True
                             #Third keyboard line
                             if self.current_user_word[letter_index] == 'A':
-                                self.root.get_screen('GameScreen').ids.letter_a.disabled = True               
+                                self.root.get_screen('GameScreen').ids.letter_a.disabled = True
+                            if self.current_user_word[letter_index] == 'S':
+                                self.root.get_screen('GameScreen').ids.letter_s.disabled = True               
+                            if self.current_user_word[letter_index] == 'D':
+                                self.root.get_screen('GameScreen').ids.letter_d.disabled = True
+                            if self.current_user_word[letter_index] == 'F':
+                                self.root.get_screen('GameScreen').ids.letter_f.disabled = True
+                            if self.current_user_word[letter_index] == 'G':
+                                self.root.get_screen('GameScreen').ids.letter_g.disabled = True
+                            if self.current_user_word[letter_index] == 'H':
+                                self.root.get_screen('GameScreen').ids.letter_h.disabled = True
+                            if self.current_user_word[letter_index] == 'J':
+                                self.root.get_screen('GameScreen').ids.letter_j.disabled = True
+                            if self.current_user_word[letter_index] == 'K':
+                                self.root.get_screen('GameScreen').ids.letter_k.disabled = True
+                            if self.current_user_word[letter_index] == 'L':
+                                self.root.get_screen('GameScreen').ids.letter_l.disabled = True
+                            #Fourth keyboard line
+                            if self.current_user_word[letter_index] == 'Z':
+                                self.root.get_screen('GameScreen').ids.letter_z.disabled = True
+                            if self.current_user_word[letter_index] == 'X':
+                                self.root.get_screen('GameScreen').ids.letter_x.disabled = True
+                            if self.current_user_word[letter_index] == 'C':
+                                self.root.get_screen('GameScreen').ids.letter_c.disabled = True
+                            if self.current_user_word[letter_index] == 'V':
+                                self.root.get_screen('GameScreen').ids.letter_v.disabled = True
+                            if self.current_user_word[letter_index] == 'B':
+                                self.root.get_screen('GameScreen').ids.letter_b.disabled = True
+                            if self.current_user_word[letter_index] == 'N':
+                                self.root.get_screen('GameScreen').ids.letter_n.disabled = True
+                            if self.current_user_word[letter_index] == 'M':
+                                self.root.get_screen('GameScreen').ids.letter_m.disabled = True
 
                             if self.current_line == 1:
                                 if letter_index+1 == 1:
