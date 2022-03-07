@@ -233,6 +233,8 @@ class Verbumo (MDApp):
                 self.clear_table()
                 print(self.current_word)
                 print(self.current_line)
+                #Activate all keyboard keys anew
+                self.activate_keyboard()
             else:
                 #The word is in the dictionary but not correct
                 if self.current_user_word in self.dictionary:
@@ -550,6 +552,7 @@ class Verbumo (MDApp):
                         self.current_word = func.pick_random_word('5')
                         self.clear_table()
                         print(self.current_word)
+                        self.activate_keyboard()
 
                     #Reset variables for a new line
                     if self.current_line != 6:
@@ -672,5 +675,46 @@ class Verbumo (MDApp):
             if self.current_line == 6:
                 self.root.get_screen('GameScreen').ids.letter1line6.text = ''
                 self.root.get_screen('GameScreen').ids.letter1line6.md_bg_color = (0,0,0,0)
+
+    def activate_keyboard(self):
+        #First keyboard line
+        self.root.get_screen('GameScreen').ids.letter_ą.disabled = False             
+        self.root.get_screen('GameScreen').ids.letter_ć.disabled = False             
+        self.root.get_screen('GameScreen').ids.letter_ę.disabled = False             
+        self.root.get_screen('GameScreen').ids.letter_ł.disabled = False             
+        self.root.get_screen('GameScreen').ids.letter_ó.disabled = False             
+        self.root.get_screen('GameScreen').ids.letter_ś.disabled = False             
+        self.root.get_screen('GameScreen').ids.letter_ń.disabled = False             
+        self.root.get_screen('GameScreen').ids.letter_ż.disabled = False             
+        self.root.get_screen('GameScreen').ids.letter_ź.disabled = False
+        #Second keyboard line
+        self.root.get_screen('GameScreen').ids.letter_q.disabled = False                          
+        self.root.get_screen('GameScreen').ids.letter_w.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_e.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_r.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_t.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_y.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_u.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_i.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_o.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_p.disabled = False
+        #Third keyboard line
+        self.root.get_screen('GameScreen').ids.letter_a.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_s.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_d.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_f.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_g.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_h.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_j.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_k.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_l.disabled = False
+        #Fourth keyboard line
+        self.root.get_screen('GameScreen').ids.letter_z.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_x.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_c.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_v.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_b.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_n.disabled = False
+        self.root.get_screen('GameScreen').ids.letter_m.disabled = False
 
 Verbumo().run()
