@@ -25,6 +25,9 @@ SManager:
                 cols:3
                 BoxLayout:
                     size_hint_x:0.25
+                    MDIconButton:
+                        icon:"help-circle-outline" 
+                        on_release:app.display_info()
                 BoxLayout:
                     MDLabel:
                         text:'Verbumo'
