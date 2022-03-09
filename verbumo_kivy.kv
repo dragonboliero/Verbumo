@@ -25,9 +25,14 @@ SManager:
                 cols:3
                 BoxLayout:
                     size_hint_x:0.25
-                    MDIconButton:
-                        icon:"help-circle-outline" 
-                        on_release:app.display_info()
+                    GridLayout:
+                        rows:3
+                        BoxLayout:  
+                        MDIconButton:
+                            icon:"help-circle-outline" 
+                            on_release:app.display_info()
+                            pos_hint_y:0.5
+                        BoxLayout:
                 BoxLayout:
                     MDLabel:
                         text:'Verbumo'
@@ -35,12 +40,18 @@ SManager:
                         font_style:'H3' 
                 BoxLayout:
                     size_hint_x:0.25
-                    MDLabel:
-                        text:'Wynik:'
-                    MDLabel:
-                        id:score
-                        text:'0'
-                        halign:'left'
+                    GridLayout:
+                        rows:4
+                        BoxLayout:
+                        MDLabel:
+                            markup:True
+                            text:'Wynik'
+                            halign:'center'
+                        MDLabel:
+                            id:score
+                            text:'0'
+                            halign:'center'
+                        BoxLayout:
         GridLayout:
             cols:5
             rows:6
@@ -553,10 +564,10 @@ SManager:
                     pos_hint:{'center_x':0.5}                                      
                     MDCard:
                         on_release: app.check_user_word()
-                        MDLabel:
-                            markup:True
-                            text:'[b]ENTER[/b]'
+                        MDIcon:
+                            icon:'arrow-right-thick'
                             halign:'center'
+                            badge_icon_colory:(0,1,0,1)
                     MDCard:
                         id:letter_z
                         disabled:False

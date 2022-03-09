@@ -37,7 +37,7 @@ class Verbumo (MDApp):
         #Variable holding user score
         self.score = 0
         #Color variables
-        self.correct_letter_color = (0,1,0,1)
+        self.correct_letter_color = (0.25,0.61,0.21,1)
         self.misplaced_letter_color = (1,0.8,0,1)
         self.wrong_letter_color = (0,0,0,1)                
         print(self.current_word)
@@ -723,9 +723,7 @@ Twoim celem jest odgadnięcie hasła. Masz na to 6 prób.
 
 Jeśli nie uda Ci się odgadnąć hasła, to podane litery zostaną podświetlone.
 
-Na zielono jeśli znajdują się w haśle w tym samym miejscu, na żółto jeśli
-znajdują się w haśle, ale na innym miejscu, lub na czarno jeśli nie znajdują
-się w haśle.
+Na zielono jeśli znajdują się w haśle w tym samym miejscu, na żółto jeśli znajdują się w haśle, ale na innym miejscu, lub na czarno jeśli nie znajdują się w haśle.
 
 Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko zostało to dokonane.
         """)
