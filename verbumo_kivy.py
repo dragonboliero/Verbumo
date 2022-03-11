@@ -25,13 +25,13 @@ class GameScreen(Screen):
 class Verbumo (MDApp):
     def build(self):
         #Pick first correct answer
-        self.current_word = func.pick_random_word('5')
+        self.current_word = func.pick_random_word('correct_answers')
         #Set starting line
         self.current_line = 1
         #Set starting position in the grid's line
         self.line_position = 1
         #Load appropriate dictionary
-        self.dictionary = func.words_dictionary('5')
+        self.dictionary = func.words_dictionary('user_answers')
         #Variable holding user input
         self.current_user_word = ''
         #Variable holding user score
@@ -228,7 +228,7 @@ class Verbumo (MDApp):
                 #Change score label
                 self.root.get_screen('GameScreen').ids.score.text = str(self.score)
                 #Get new correct word
-                self.current_word = func.pick_random_word('5')
+                self.current_word = func.pick_random_word('correct_answers')
                 #Clear all user input
                 self.clear_table()
                 print(self.current_word)
@@ -549,7 +549,7 @@ class Verbumo (MDApp):
                         self.current_line = 0
                         self.current_user_word=''
                         #Get a new random correct word
-                        self.current_word = func.pick_random_word('5')
+                        self.current_word = func.pick_random_word('correct_answers')
                         self.clear_table()
                         print(self.current_word)
                         self.activate_keyboard()

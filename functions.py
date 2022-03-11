@@ -1,8 +1,8 @@
 import random
 
-def pick_random_word(word_length):
+def pick_random_word(name):
     all_words = []
-    with open(f'dictionaries/{word_length}.txt','r',encoding='utf-8') as dictionary:
+    with open(f'dictionaries/{name}.txt','r',encoding='utf-8') as dictionary:
             for line in dictionary:
                 all_words.append(line.strip().upper())
 
