@@ -390,7 +390,8 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter5line6.md_bg_color = self.misplaced_letter_color        
                         #If the currently checked letter is not in the answer
                         else:
-                            #Disable keyboard button 
+                            pass
+                            """ #Disable keyboard button 
                             #First keyboard line
                             if self.current_user_word[letter_index] == 'Ą':
                                 self.root.get_screen('GameScreen').ids.letter_ą.disabled = True             
@@ -465,7 +466,7 @@ class Verbumo (MDApp):
                                 self.root.get_screen('GameScreen').ids.letter_n.disabled = True
                             if self.current_user_word[letter_index] == 'M':
                                 self.root.get_screen('GameScreen').ids.letter_m.disabled = True
-
+ """
                             if self.current_line == 1:
                                 if letter_index+1 == 1:
                                         self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = self.wrong_letter_color               
@@ -540,7 +541,8 @@ class Verbumo (MDApp):
 
                     #If the answer in the last line was wrong
                     if self.current_line == 6:
-                        lost_dialog = f'Porażka, prawidłową odpowiedzią było słowo: {self.current_word}'
+                        word_meanings = func.get_dictionary_entry(self.current_word)
+                        lost_dialog = f'Porażka, prawidłową odpowiedzią było słowo: {self.current_word}\n\n{word_meanings}'
                         #Display dialog window stating the answer was wrong
                         word_lost = MDDialog(text=lost_dialog)
                         word_lost.open()
@@ -723,7 +725,7 @@ Twoim celem jest odgadnięcie hasła. Masz na to 6 prób.
 
 Jeśli nie uda Ci się odgadnąć hasła, to podane litery zostaną podświetlone.
 
-Na zielono jeśli znajdują się w haśle w tym samym miejscu, na żółto jeśli znajdują się w haśle, ale na innym miejscu, lub na czarno jeśli nie znajdują się w haśle.
+Na [color=#409C36]zielono[/color] jeśli znajdują się w haśle w tym samym miejscu, na [color=#FFCD00]żółto[/color] jeśli znajdują się w haśle, ale na innym miejscu, lub na [color=#000000]czarno[/color] jeśli nie znajdują się w haśle.
 
 Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko zostało to dokonane.
         """)
