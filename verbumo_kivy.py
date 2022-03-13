@@ -391,7 +391,7 @@ class Verbumo (MDApp):
                         #If the currently checked letter is not in the answer
                         else:
                             pass
-                            """ #Disable keyboard button 
+                            #Disable keyboard button 
                             #First keyboard line
                             if self.current_user_word[letter_index] == 'Ą':
                                 self.root.get_screen('GameScreen').ids.letter_ą.disabled = True             
@@ -466,7 +466,7 @@ class Verbumo (MDApp):
                                 self.root.get_screen('GameScreen').ids.letter_n.disabled = True
                             if self.current_user_word[letter_index] == 'M':
                                 self.root.get_screen('GameScreen').ids.letter_m.disabled = True
- """
+
                             if self.current_line == 1:
                                 if letter_index+1 == 1:
                                         self.root.get_screen('GameScreen').ids.letter1line1.md_bg_color = self.wrong_letter_color               

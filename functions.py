@@ -46,9 +46,21 @@ def get_dictionary_entry(name):
     else:
         meanings = soup.find_all("div",{"class":"ribbon-element"})
         text_meanings = str(meanings)
-        text_meanings = text_meanings.split("«")
-        text_meanings = text_meanings[1].split("»")
-        cleared_meainings = "1. " + text_meanings[0]
-        print(cleared_meainings)
+        if len(text_meanings)!=2:
+            text_meanings = text_meanings.split("«")
+            text_meanings = text_meanings[1].split("»")
+            cleared_meainings = "1. " + text_meanings[0]
+        else:
+            print('nothing found')
+
     return(cleared_meainings)
-#get_dictionary_entry('talib')
+
+#get_dictionary_entry("tutaj")
+
+dictio  = words_dictionary("correct_answers")
+counter = 1
+for i in range(600,len(dictio)):
+    print(dictio[i])
+    print(get_dictionary_entry(dictio[i]))
+    counter+=1
+    input()
