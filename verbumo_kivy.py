@@ -390,10 +390,9 @@ class Verbumo (MDApp):
                                         self.root.get_screen('GameScreen').ids.letter5line6.md_bg_color = self.misplaced_letter_color        
                         #If the currently checked letter is not in the answer
                         else:
-                            pass
                             #Disable keyboard button 
                             #First keyboard line
-                            if self.current_user_word[letter_index] == 'Ą':
+                            """ if self.current_user_word[letter_index] == 'Ą':
                                 self.root.get_screen('GameScreen').ids.letter_ą.disabled = True             
                             if self.current_user_word[letter_index] == 'Ć':
                                 self.root.get_screen('GameScreen').ids.letter_ć.disabled = True
@@ -465,7 +464,7 @@ class Verbumo (MDApp):
                             if self.current_user_word[letter_index] == 'N':
                                 self.root.get_screen('GameScreen').ids.letter_n.disabled = True
                             if self.current_user_word[letter_index] == 'M':
-                                self.root.get_screen('GameScreen').ids.letter_m.disabled = True
+                                self.root.get_screen('GameScreen').ids.letter_m.disabled = True """
 
                             if self.current_line == 1:
                                 if letter_index+1 == 1:
@@ -542,7 +541,7 @@ class Verbumo (MDApp):
                     #If the answer in the last line was wrong
                     if self.current_line == 6:
                         word_meanings = func.get_dictionary_entry(self.current_word)
-                        lost_dialog = f'Porażka, prawidłową odpowiedzią było słowo: {self.current_word}\n\n{word_meanings}'
+                        lost_dialog = f'[color=#D91616]Porażka[/color], prawidłową odpowiedzią było słowo: [color=#409C36]{self.current_word}[/color]\n\n{word_meanings}'
                         #Display dialog window stating the answer was wrong
                         word_lost = MDDialog(text=lost_dialog)
                         word_lost.open()

@@ -39,7 +39,7 @@ def get_dictionary_entry(name):
         for split_item in text_meanings:
             if ("»</div>") in split_item:
                 split_item = split_item.split("»</div>")
-                new_meaining = f"{counter}. {split_item[0]}"
+                new_meaining = f"[b]{counter}.[/b] {split_item[0]}"
                 cleared_meainings = cleared_meainings + new_meaining + "\n"
                 counter +=1
         #print(cleared_meainings) 
@@ -49,7 +49,7 @@ def get_dictionary_entry(name):
         if len(text_meanings)!=2:
             text_meanings = text_meanings.split("«")
             text_meanings = text_meanings[1].split("»")
-            cleared_meainings = "1. " + text_meanings[0]
+            cleared_meainings = "[b]1.[/b] " + text_meanings[0]
         else:
             print('nothing found')
 
@@ -57,10 +57,10 @@ def get_dictionary_entry(name):
 
 #get_dictionary_entry("tutaj")
 
-dictio  = words_dictionary("correct_answers")
+""" dictio  = words_dictionary("correct_answers")
 counter = 1
 for i in range(600,len(dictio)):
     print(dictio[i])
     print(get_dictionary_entry(dictio[i]))
     counter+=1
-    input()
+    input() """
