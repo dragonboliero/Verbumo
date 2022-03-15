@@ -64,7 +64,6 @@ powód
 ramię
 wynik
 matka
-tutaj
 wydać
 temat
 akcja
@@ -368,7 +367,6 @@ suchy
 dokąd
 lider
 mijać
-china
 środa
 wizja
 front
@@ -478,7 +476,6 @@ sługa
 sztab
 pozór
 śpiew
-prócz
 filip
 wedle
 zjazd
@@ -518,7 +515,6 @@ błysk
 muzyk
 półka
 opcja
-ażeby
 wkład
 mebel
 ślepy
@@ -599,7 +595,6 @@ agora
 garść
 runąć
 posąg
-wanda
 walor
 nakaz
 burta
@@ -610,7 +605,6 @@ babka
 bydło
 okryć
 afera
-pasać
 kawał
 zimno
 spoza
@@ -656,7 +650,6 @@ powóz
 małpa
 ustać
 zbieg
-turek
 pięta
 barek
 darmo
@@ -674,7 +667,6 @@ nadto
 tatuś
 kuzyn
 jawny
-lecha
 wokół
 senny
 wstyd
@@ -738,7 +730,6 @@ wzmóc
 lękać
 pudło
 nudny
-tomek
 aktyw
 krata
 stres
@@ -759,7 +750,6 @@ obrać
 czuły
 jakiż
 bodaj
-bloga
 rubel
 szach
 fajka
@@ -805,7 +795,6 @@ futro
 sypać
 opole
 ganek
-kijów
 oczko
 bęben
 kącik
@@ -827,7 +816,6 @@ ugoda
 bella
 nawyk
 reżim
-intel
 dziad
 czcić
 góral
@@ -841,7 +829,6 @@ baśka
 jasło
 podły
 ucisk
-kurwa
 osioł
 minus
 synek
@@ -855,7 +842,6 @@ odpis
 dyżur
 litra
 drgać
-pekin
 ustny
 łódka
 uśpić
@@ -875,7 +861,6 @@ budka
 linek
 tanio
 pompa
-wawel
 graca
 polka
 nafta
@@ -915,7 +900,6 @@ zamęt
 nabój
 czara
 radar
-gówno
 beton
 tweed
 rondo
@@ -926,9 +910,7 @@ kręty
 brawo
 sonda
 wełna
-stone
 jadać
-bobby
 gałka
 nalot
 górka
@@ -936,7 +918,6 @@ ubiór
 miech
 biało
 kulka
-brand
 notes
 lando
 fajny
@@ -972,9 +953,7 @@ rumak
 żenić
 strop
 jeleń
-oscar
 ciecz
-metro
 drzeć
 zguba
 masaż
@@ -998,7 +977,6 @@ dudek
 pycha
 drwić
 ligać
-saski
 notka
 mętny
 polec
@@ -1046,8 +1024,6 @@ szyna
 żniwo
 śluza
 konno
-green
-troll
 buzia
 kolec
 zrzec

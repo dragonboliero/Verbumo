@@ -392,7 +392,7 @@ class Verbumo (MDApp):
                         else:
                             #Disable keyboard button 
                             #First keyboard line
-                            """ if self.current_user_word[letter_index] == 'Ą':
+                            if self.current_user_word[letter_index] == 'Ą':
                                 self.root.get_screen('GameScreen').ids.letter_ą.disabled = True             
                             if self.current_user_word[letter_index] == 'Ć':
                                 self.root.get_screen('GameScreen').ids.letter_ć.disabled = True
@@ -464,7 +464,7 @@ class Verbumo (MDApp):
                             if self.current_user_word[letter_index] == 'N':
                                 self.root.get_screen('GameScreen').ids.letter_n.disabled = True
                             if self.current_user_word[letter_index] == 'M':
-                                self.root.get_screen('GameScreen').ids.letter_m.disabled = True """
+                                self.root.get_screen('GameScreen').ids.letter_m.disabled = True
 
                             if self.current_line == 1:
                                 if letter_index+1 == 1:
