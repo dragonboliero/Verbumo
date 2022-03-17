@@ -59,7 +59,7 @@ def get_dictionary_entry(name):
 
 dictio  = words_dictionary("correct_answers")
 counter = 1
-for i in range(1453,len(dictio)):
+for i in range(1971,len(dictio)):
     print(dictio[i])
     print(get_dictionary_entry(dictio[i]))
     counter+=1
