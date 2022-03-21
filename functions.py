@@ -56,10 +56,12 @@ def get_dictionary_entry(name):
 
 #get_dictionary_entry("tutaj")
 
-""" dictio  = words_dictionary("correct_answers")
+dictio  = words_dictionary("correct_answers")
 counter = 1
-for i in range(2109,len(dictio)):
+for i in range(299,len(dictio)):
     print(dictio[i])
     print(get_dictionary_entry(dictio[i]))
     counter+=1
-    input() """
+    input()
+
+#1500 - kępka (1423)
