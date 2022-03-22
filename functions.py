@@ -58,10 +58,10 @@ def get_dictionary_entry(name):
 
 dictio  = words_dictionary("correct_answers")
 counter = 1
-for i in range(299,len(dictio)):
+for i in range(727,len(dictio)):
     print(dictio[i])
     print(get_dictionary_entry(dictio[i]))
     counter+=1
     input()
 
-#1500 - kępka (1423)
+#1500 - kępka (1360)
