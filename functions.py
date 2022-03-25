@@ -60,10 +60,14 @@ def get_dictionary_entry(name):
                 cleared_meainings = "[b]1.[/b] " + text_meanings[0]
             else:
                 print('nothing found')
+                
+        cleared_meainings = cleared_meainings + "\n\n źródło: sjp.pwn.pl"
+        return(cleared_meainings)
     except:
         print("no internet")
-        pass
-    return(cleared_meainings)
+        cleared_meainings = ""
+        return(cleared_meainings)
+    
 
 #get_dictionary_entry("tutaj")
 

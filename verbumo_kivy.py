@@ -1,9 +1,7 @@
 """
 To do list:
-    *Make keyboard keys change color when a letter is not resent in the 
-    current word.
-    *Score modifiers depending on user answers. The more correct 
-    letters in earlier tries te more points.
+   *Add reset button (Decrease user score if used).
+   *Add some final styiling to the app. 
 """
 
 #Basic imports
