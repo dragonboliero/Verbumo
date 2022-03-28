@@ -8,6 +8,17 @@ SManager:
 <MDLabel>:
     color:(1,1,1,1)
 
+<Content>
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    MDTextField:
+        id:error_text
+        hint_text:"Opis błędu"
+        mode:"rectangle"
+    MDFlatButton:
+        text:'[color=#000000]wyślij[/color]'
+        on_release:app.send_bug_report(error_text.text)
 
 <GameScreen>
     name:'GameScreen'
@@ -31,6 +42,22 @@ SManager:
                         MDIconButton:
                             icon:"help-circle-outline" 
                             on_release:app.display_info()
+                            pos_hint_y:0.5
+                        BoxLayout:
+                    GridLayout:
+                        rows:3
+                        BoxLayout:  
+                        MDIconButton:
+                            icon:"autorenew" 
+                            #on_release:
+                            pos_hint_y:0.5
+                        BoxLayout:
+                    GridLayout:
+                        rows:3
+                        BoxLayout:  
+                        MDIconButton:
+                            icon:"bug" 
+                            on_release: app.bug_report_window()
                             pos_hint_y:0.5
                         BoxLayout:
                 BoxLayout:

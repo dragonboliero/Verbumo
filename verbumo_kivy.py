@@ -8,8 +8,10 @@ To do list:
 from kivymd.app import MDApp
 from kivy.lang.builder import Builder   
 from kivy.uix.screenmanager  import Screen,ScreenManager
+from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.label import MDLabel
 from kivymd.uix.dialog import MDDialog
+from kivymd.uix.button import MDFlatButton
 import functions as func
     
 
@@ -17,6 +19,9 @@ class SManager(ScreenManager):
     pass
 
 class GameScreen(Screen):
+    pass
+
+class Content(BoxLayout):
     pass
 
 #Main App
@@ -727,5 +732,17 @@ Na [color=#409C36]zielono[/color] jeśli znajdują się w haśle w tym samym mie
 Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko zostało to dokonane.
         """)
         how_to_play.open()
+    
+    def bug_report_window(self):
+        send_bug_report = MDDialog(
+          title = '[color=#000000]Wyślij raport o błędzie[/color]',
+          type ="custom",
+          content_cls=Content(),
+        )
+        send_bug_report.open()
+
+    def send_bug_report(self,text):
+        func.send_bug_report(text)
+
 
 Verbumo().run()

@@ -2,6 +2,7 @@ import random
 import requests
 import html5lib
 from bs4 import BeautifulSoup as bs
+import smtplib
 
 def pick_random_word(name):
     all_words = []
@@ -82,3 +83,8 @@ for i in range(0,3):
     #print(get_dictionary_entry(dictio[i]))
     counter+=1
 print('end') """
+
+def send_bug_report(message):
+    server = smtplib.SMTP_SSL("smtp.gmail.com",465)
+    server.login("mail","mailpass")
+    server.sendmail("sender","receiver",message)
