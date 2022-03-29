@@ -20,6 +20,14 @@ SManager:
         text:'[color=#000000]wyślij[/color]'
         on_release:app.send_bug_report(error_text.text)
 
+<ResetContent>
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    MDFlatButton:
+        text:'[color=#000000]potwierdź[/color]'
+        on_release:app.word_reset()
+
 <GameScreen>
     name:'GameScreen'
     canvas.before:
@@ -51,6 +59,7 @@ SManager:
                             icon:"autorenew" 
                             #on_release:
                             pos_hint_y:0.5
+                            on_release:app.word_reset_dialog()
                         BoxLayout:
                     GridLayout:
                         rows:3

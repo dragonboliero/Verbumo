@@ -24,6 +24,9 @@ class GameScreen(Screen):
 class Content(BoxLayout):
     pass
 
+class ResetContent(BoxLayout):
+    pass
+
 #Main App
 class Verbumo (MDApp):
     def build(self):
@@ -732,17 +735,43 @@ Na [color=#409C36]zielono[/color] jeśli znajdują się w haśle w tym samym mie
 Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko zostało to dokonane.
         """)
         how_to_play.open()
-    
+
+    def word_reset_dialog(self):
+        self.wr_dialog = MDDialog(
+            title="[color=#000000]Czy na pewno chcesz wylosować nowe hasło? Stracisz 25 punktów.[/color]",
+            type ="custom",
+            content_cls=ResetContent(),)
+        self.wr_dialog.open()
+
+    def word_reset(self):
+        #Reset position variables
+        self.line_position = 1
+        self.current_line = 1
+        self.current_user_word=''
+        #Change score label
+        self.score = self.score - 25
+        self.root.get_screen('GameScreen').ids.score.text = str(self.score)
+        #Get new correct word
+        self.current_word = func.pick_random_word('correct_answers')
+        #Clear all user input
+        self.clear_table()
+        print(self.current_word)
+        print(self.current_line)
+        #Activate all keyboard keys anew
+        self.activate_keyboard()
+        self.wr_dialog.dismiss(force=True)
+
     def bug_report_window(self):
-        send_bug_report = MDDialog(
+        self.sb_report = MDDialog(
           title = '[color=#000000]Wyślij raport o błędzie[/color]',
           type ="custom",
           content_cls=Content(),
         )
-        send_bug_report.open()
+        self.sb_report.open()
 
     def send_bug_report(self,text):
         func.send_bug_report(text)
+        self.sb_report.dismiss(force=True)
 
 
 Verbumo().run()
