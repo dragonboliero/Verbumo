@@ -547,7 +547,7 @@ class Verbumo (MDApp):
                     #If the answer in the last line was wrong
                     if self.current_line == 6:
                         word_meanings = func.get_dictionary_entry(self.current_word)
-                        lost_dialog = f'[color=#D91616]Porażka[/color], prawidłową odpowiedzią było słowo: [color=#409C36]{self.current_word}[/color]\n\n{word_meanings}'
+                        lost_dialog = f'[color=#D91616]Nie udało się odgadnąć hasła[/color]. Prawidłową odpowiedzią było słowo: [color=#409C36]{self.current_word}[/color]\n\n{word_meanings}'
                         #Display dialog window stating the answer was wrong
                         word_lost = MDDialog(text=lost_dialog)
                         word_lost.open()
@@ -726,9 +726,11 @@ class Verbumo (MDApp):
 
     def display_info(self):
         how_to_play = MDDialog(text="""
-Twoim celem jest odgadnięcie hasła. Masz na to 6 prób.
+[b][i]Zasady gry[/i][/b]
 
-Jeśli nie uda Ci się odgadnąć hasła, to podane litery zostaną podświetlone.
+Twoim celem jest odgadnięcie [i]hasła[/i]. Masz na to [i]6[/i] prób.
+
+Jeśli nie uda ci się odgadnąć hasła, to podane przez ciebie litery zostaną podświetlone.
 
 Na [color=#409C36]zielono[/color] jeśli znajdują się w haśle w tym samym miejscu, na [color=#FFCD00]żółto[/color] jeśli znajdują się w haśle, ale na innym miejscu, lub na [color=#000000]czarno[/color] jeśli nie znajdują się w haśle.
 
@@ -738,7 +740,6 @@ Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko 
 
     def word_reset_dialog(self):
         self.wr_dialog = MDDialog(
-            title="[color=#000000]Czy na pewno chcesz wylosować nowe hasło? Stracisz 25 punktów.[/color]",
             type ="custom",
             content_cls=ResetContent(),)
         self.wr_dialog.open()
@@ -763,7 +764,6 @@ Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko 
 
     def bug_report_window(self):
         self.sb_report = MDDialog(
-          title = '[color=#000000]Wyślij raport o błędzie[/color]',
           type ="custom",
           content_cls=Content(),
         )

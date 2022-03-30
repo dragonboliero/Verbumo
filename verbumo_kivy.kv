@@ -12,21 +12,48 @@ SManager:
     orientation: "vertical"
     spacing: "12dp"
     size_hint_y: None
+    MDLabel:
+        size_hint_y:0.03
+        markup:True
+        text:"[color=#9ea9bb]Wyślij raport o błędzie[/color]"
+        halign:"center"
     MDTextField:
+        size_hint_y:0.55
         id:error_text
+        text_color:0.62,0.66,0.73,1
         hint_text:"Opis błędu"
         mode:"rectangle"
-    MDFlatButton:
-        text:'[color=#000000]wyślij[/color]'
-        on_release:app.send_bug_report(error_text.text)
+    MDGridLayout:
+        size_hint_y:0.4
+        cols:3
+        MDBoxLayout:
+            size_hint_x:0.25
+        MDRaisedButton:
+            text:'[color=#FFFFFF]wyślij[/color]'
+            md_bg_color:0.62,0.66,0.73,1
+            on_release:app.send_bug_report(error_text.text)
+        MDBoxLayout:
+            size_hint_x:0.25
 
 <ResetContent>
     orientation: "vertical"
     spacing: "12dp"
     size_hint_y: None
-    MDFlatButton:
-        text:'[color=#000000]potwierdź[/color]'
-        on_release:app.word_reset()
+    MDLabel:
+        markup:True
+        text:"[color=#9ea9bb]Czy na pewno chcesz wylosować nowe hasło? Stracisz 25 punktów.[/color]"
+        halign:"center"
+    MDGridLayout:
+        cols:3
+        MDBoxLayout:
+            size_hint_x:0.25
+        MDRaisedButton:
+            text:'[color=#FFFFFF]potwierdź[/color]'
+            md_bg_color:0.62,0.66,0.73,1
+            on_release:app.word_reset()
+        MDBoxLayout:
+            size_hint_x:0.25
+
 
 <GameScreen>
     name:'GameScreen'
