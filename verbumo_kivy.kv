@@ -72,30 +72,36 @@ SManager:
                 BoxLayout:
                     size_hint_x:0.25
                     GridLayout:
-                        rows:3
-                        BoxLayout:  
-                        MDIconButton:
-                            icon:"help-circle-outline" 
-                            on_release:app.display_info()
-                            pos_hint_y:0.5
+                        cols:5
+                        GridLayout:
+                            rows:3
+                            BoxLayout:  
+                            MDIconButton:
+                                icon:"help-circle-outline" 
+                                on_release:app.display_info()
+                                pos_hint_y:0.5
+                            BoxLayout:
                         BoxLayout:
-                    GridLayout:
-                        rows:3
-                        BoxLayout:  
-                        MDIconButton:
-                            icon:"autorenew" 
-                            #on_release:
-                            pos_hint_y:0.5
-                            on_release:app.word_reset_dialog()
+                            size_hint_x:0.2
+                        GridLayout:
+                            rows:3
+                            BoxLayout:  
+                            MDIconButton:
+                                icon:"autorenew" 
+                                #on_release:
+                                pos_hint_y:0.5
+                                on_release:app.word_reset_dialog()
+                            BoxLayout:
                         BoxLayout:
-                    GridLayout:
-                        rows:3
-                        BoxLayout:  
-                        MDIconButton:
-                            icon:"bug" 
-                            on_release: app.bug_report_window()
-                            pos_hint_y:0.5
-                        BoxLayout:
+                            size_hint_x:0.2
+                        GridLayout:
+                            rows:3
+                            BoxLayout:  
+                            MDIconButton:
+                                icon:"bug" 
+                                on_release: app.bug_report_window()
+                                pos_hint_y:0.5
+                            BoxLayout:
                 BoxLayout:
                     MDLabel:
                         text:'Verbumo'
