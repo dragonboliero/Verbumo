@@ -725,14 +725,12 @@ class Verbumo (MDApp):
         self.root.get_screen('GameScreen').ids.letter_m.disabled = False
 
     def display_info(self):
-        how_to_play = MDDialog(text="""
-[b][i]Zasady gry[/i][/b]
-
-Twoim celem jest odgadnięcie [i]hasła[/i]. Masz na to [i]6[/i] prób.
+        how_to_play = MDDialog(title="[color=#9ea9bb][b][i]Zasady gry[/b][/i][/color]",text="""
+Twoim celem jest odgadnięcie [b][i]hasła[/i][/b]. Masz na to [b][i]6[/i][/b] prób.
 
 Jeśli nie uda ci się odgadnąć hasła, to podane przez ciebie litery zostaną podświetlone.
 
-Na [color=#409C36]zielono[/color] jeśli znajdują się w haśle w tym samym miejscu, na [color=#FFCD00]żółto[/color] jeśli znajdują się w haśle, ale na innym miejscu, lub na [color=#000000]czarno[/color] jeśli nie znajdują się w haśle.
+Na [b][i][color=#409C36]zielono[/color][/b][/i] jeśli znajdują się w haśle w tym samym miejscu, na [b][i][color=#FFCD00]żółto[/color][/b][/i] jeśli znajdują się w haśle, ale na innym miejscu, lub na [b][i][color=#000000]czarno[/color][/b][/i] jeśli nie znajdują się w haśle.
 
 Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko zostało to dokonane.
         """)
