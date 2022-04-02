@@ -217,15 +217,15 @@ class Verbumo (MDApp):
                 if self.current_line == 1:
                     self.score +=100
                 if self.current_line == 2:
-                    self.score +=50
+                    self.score +=75
                 if self.current_line == 3:
-                    self.score +=25
+                    self.score +=40
                 if self.current_line == 4:
-                    self.score +=12
+                    self.score +=30
                 if self.current_line == 5:
-                    self.score +=6
+                    self.score +=20
                 if self.current_line == 6:
-                    self.score +=3
+                    self.score +=10
 
                 #Reset position variables
                 self.line_position = 1
@@ -738,6 +738,7 @@ Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko 
 
     def word_reset_dialog(self):
         self.wr_dialog = MDDialog(
+            size_hint=[0.9,None],
             type ="custom",
             content_cls=ResetContent(),)
         self.wr_dialog.open()
@@ -748,7 +749,7 @@ Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko 
         self.current_line = 1
         self.current_user_word=''
         #Change score label
-        self.score = self.score - 25
+        self.score = self.score - 5
         self.root.get_screen('GameScreen').ids.score.text = str(self.score)
         #Get new correct word
         self.current_word = func.pick_random_word('correct_answers')
@@ -762,6 +763,7 @@ Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko 
 
     def bug_report_window(self):
         self.sb_report = MDDialog(
+          size_hint=[0.9,None],
           type ="custom",
           content_cls=Content(),
         )

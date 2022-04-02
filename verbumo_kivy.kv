@@ -12,6 +12,7 @@ SManager:
     orientation: "vertical"
     spacing: "12dp"
     size_hint_y: None
+    height: dp(150)
     MDLabel:
         size_hint_y:0.03
         markup:True
@@ -39,9 +40,10 @@ SManager:
     orientation: "vertical"
     spacing: "12dp"
     size_hint_y: None
+    height: dp(100)
     MDLabel:
         markup:True
-        text:"[color=#9ea9bb]Czy na pewno chcesz wylosować nowe hasło? Stracisz 25 punktów.[/color]"
+        text:"[color=#9ea9bb]Czy na pewno chcesz wylosować nowe hasło? Stracisz 5 punktów.[/color]"
         halign:"center"
     MDGridLayout:
         cols:3
@@ -69,10 +71,11 @@ SManager:
             size_hint_y:0.15
             GridLayout:
                 cols:3
+                #Left side part
                 BoxLayout:
-                    size_hint_x:0.25
+                    size_hint_x:0.40
                     GridLayout:
-                        cols:5
+                        cols:3
                         GridLayout:
                             rows:3
                             BoxLayout:  
@@ -87,39 +90,45 @@ SManager:
                             rows:3
                             BoxLayout:  
                             MDIconButton:
-                                icon:"autorenew" 
-                                #on_release:
+                                icon:"autorenew"
                                 pos_hint_y:0.5
                                 on_release:app.word_reset_dialog()
+                            #MDIconButton:
+                            #    icon:"bug" 
+                            #    on_release: app.bug_report_window()
+                            #    pos_hint_y:0.5
                             BoxLayout:
-                        BoxLayout:
-                            size_hint_x:0.2
-                        GridLayout:
-                            rows:3
-                            BoxLayout:  
-                            MDIconButton:
-                                icon:"bug" 
-                                on_release: app.bug_report_window()
-                                pos_hint_y:0.5
-                            BoxLayout:
+                #App name part
                 BoxLayout:
                     MDLabel:
                         text:'Verbumo'
                         halign:'center'
-                        font_style:'H3' 
+                        font_style:'H4' 
+                #Error & score part
                 BoxLayout:
-                    size_hint_x:0.25
+                    size_hint_x:0.40
                     GridLayout:
                         rows:4
+                        size_hint_x:0.55
                         BoxLayout:
                         MDLabel:
                             markup:True
                             text:'Wynik'
                             halign:'center'
+                            size_hint_x:0.8
                         MDLabel:
                             id:score
                             text:'0'
                             halign:'center'
+                        BoxLayout:
+                    GridLayout:
+                        size_hint_x:0.45
+                        rows:3
+                        BoxLayout:        
+                        MDIconButton:
+                            icon:"bug" 
+                            on_release: app.bug_report_window()
+                            pos_hint_y:0.5
                         BoxLayout:
         GridLayout:
             cols:5
