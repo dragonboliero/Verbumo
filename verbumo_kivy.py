@@ -47,6 +47,8 @@ class Verbumo (MDApp):
         self.misplaced_letter_color = (1,0.8,0,1)
         self.wrong_letter_color = (0,0,0,1)                
         print(self.current_word)
+        #Load icon
+        self.icon = "logo.png"
         #Load kv file
         app_uix = Builder.load_file('verbumo_kivy.kv')
         return app_uix
