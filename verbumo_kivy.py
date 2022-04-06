@@ -548,11 +548,7 @@ class Verbumo (MDApp):
 
                     #If the answer in the last line was wrong
                     if self.current_line == 6:
-                        word_meanings = func.get_dictionary_entry(self.current_word)
-                        lost_dialog = f'[color=#D91616]Nie udało się odgadnąć hasła[/color]. Prawidłową odpowiedzią było słowo: [color=#409C36]{self.current_word}[/color]\n\n{word_meanings}'
-                        #Display dialog window stating the answer was wrong
-                        word_lost = MDDialog(text=lost_dialog)
-                        word_lost.open()
+                        self.display_word_meaining()
                         #Reset position variables
                         self.line_position = 1
                         self.current_line = 0
@@ -579,7 +575,14 @@ class Verbumo (MDApp):
             word_not_complete = MDDialog(text='Słowo musi składać się z 5 liter!')
             word_not_complete.open()
       
-    
+    def display_word_meaining(self):
+        #Create a pop up displaying what was the correct answer
+        word_meanings = func.get_dictionary_entry(self.current_word)
+        lost_dialog = f'[color=#D91616]Nie udało się odgadnąć hasła[/color]. Prawidłową odpowiedzią było słowo: [color=#409C36]{self.current_word}[/color]\n\n{word_meanings}'
+        #Display dialog window stating the answer was wrong
+        word_lost = MDDialog(text=lost_dialog)
+        word_lost.open()
+
     def delete_last_user_letter(self):
         if self.line_position > 1:
             self.line_position -= 1
@@ -753,15 +756,17 @@ Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko 
         #Change score label
         self.score = self.score - 5
         self.root.get_screen('GameScreen').ids.score.text = str(self.score)
-        #Get new correct word
-        self.current_word = func.pick_random_word('correct_answers')
         #Clear all user input
         self.clear_table()
-        print(self.current_word)
-        print(self.current_line)
         #Activate all keyboard keys anew
         self.activate_keyboard()
         self.wr_dialog.dismiss(force=True)
+        #Display current correct word meaining
+        self.display_word_meaining()
+        #Get new correct word
+        self.current_word = func.pick_random_word('correct_answers')
+        print(self.current_word)
+        print(self.current_line)
 
     def bug_report_window(self):
         self.sb_report = MDDialog(

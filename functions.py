@@ -40,17 +40,18 @@ def get_dictionary_entry(name):
             for split_item in text_meanings:
                 if ("»</div>") in split_item:
                     split_item = split_item.split("»</div>")
-                    if "<" in split_item[0]:
-                        #print(split_item[0])
-                        split_item[0] = split_item[0].replace("<","[")
-                        split_item[0] = split_item[0].replace(">","]")
-                        if "span" in split_item[0]:
-                            split_item[0] = split_item[0].replace("[/span]","")
-                            split_item[0] = split_item[0].replace('[span class="skrot-inny"]',"")
-                        #print(split_item[0])
-                    new_meaining = f"[b]{counter}.[/b] {split_item[0]}"
-                    cleared_meainings = cleared_meainings + new_meaining + "\n"
-                    counter +=1
+                    if counter < 6:
+                        if "<" in split_item[0]:
+                            #print(split_item[0])
+                            split_item[0] = split_item[0].replace("<","[")
+                            split_item[0] = split_item[0].replace(">","]")
+                            if "span" in split_item[0]:
+                                split_item[0] = split_item[0].replace("[/span]","")
+                                split_item[0] = split_item[0].replace('[span class="skrot-inny"]',"")
+                            #print(split_item[0])
+                        new_meaining = f"[b]{counter}.[/b] {split_item[0]}"
+                        cleared_meainings = cleared_meainings + new_meaining + "\n"
+                        counter +=1
             #print(cleared_meainings) 
         else:
             meanings = soup.find_all("div",{"class":"ribbon-element"})
@@ -70,7 +71,7 @@ def get_dictionary_entry(name):
         return(cleared_meainings)
     
 
-#get_dictionary_entry("tutaj")
+#print(get_dictionary_entry("głowa"))
 
 """ dictio  = words_dictionary("correct_answers")
 counter = 1
