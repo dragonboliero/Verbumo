@@ -73,21 +73,22 @@ SManager:
                 cols:3
                 #Left side part
                 BoxLayout:
-                    size_hint_x:0.40
+                    size_hint_x:0.35
                     GridLayout:
-                        cols:3
+                        cols:2
+                        #Help button layout
                         GridLayout:
                             rows:3
+                            size_hint_x:0.45
                             BoxLayout:  
                             MDIconButton:
-                                icon:"help-circle-outline" 
+                                icon:"map-marker-question" 
                                 on_release:app.display_info()
-                                pos_hint_y:0.5
                             BoxLayout:
-                        BoxLayout:
-                            size_hint_x:0.2
+                        #New word button layout
                         GridLayout:
                             rows:3
+                            size_hint_x:0.45
                             BoxLayout:  
                             MDIconButton:
                                 icon:"autorenew"
@@ -100,13 +101,15 @@ SManager:
                             BoxLayout:
                 #App name part
                 BoxLayout:
+                    size_hint_x:0.3
                     MDLabel:
                         text:'Verbumo'
                         halign:'center'
-                        font_style:'H4' 
+                        #font_style:'Caption' 
+                        font_size:self.width/4.2
                 #Error & score part
                 BoxLayout:
-                    size_hint_x:0.40
+                    size_hint_x:0.35
                     GridLayout:
                         rows:4
                         size_hint_x:0.55
@@ -703,3 +706,4 @@ SManager:
         #Bottom spacer
         BoxLayout:
             size_hint:(1,0.02)
+

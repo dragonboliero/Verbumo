@@ -738,7 +738,7 @@ Jeśli nie uda ci się odgadnąć hasła, to podane przez ciebie litery zostaną
 Na [b][i][color=#409C36]zielono[/color][/b][/i] jeśli znajdują się w haśle w tym samym miejscu, na [b][i][color=#FFCD00]żółto[/color][/b][/i] jeśli znajdują się w haśle, ale na innym miejscu, lub na [b][i][color=#000000]czarno[/color][/b][/i] jeśli nie znajdują się w haśle.
 
 Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko zostało to dokonane.
-        """)
+        """,size_hint_y=None)
         how_to_play.open()
 
     def word_reset_dialog(self):
@@ -782,3 +782,4 @@ Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko 
 
 
 Verbumo().run()
+
