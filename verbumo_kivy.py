@@ -27,6 +27,9 @@ class Content(BoxLayout):
 class ResetContent(BoxLayout):
     pass
 
+class WordMeaning(BoxLayout):
+    pass
+
 #Main App
 class Verbumo (MDApp):
     def build(self):
@@ -578,9 +581,14 @@ class Verbumo (MDApp):
     def display_word_meaining(self):
         #Create a pop up displaying what was the correct answer
         word_meanings = func.get_dictionary_entry(self.current_word)
-        lost_dialog = f'[color=#D91616]Nie udało się odgadnąć hasła[/color]. Prawidłową odpowiedzią było słowo: [color=#409C36]{self.current_word}[/color]\n\n{word_meanings}'
+        self.lost_dialog = f'[color=#D91616]Nie udało się odgadnąć hasła[/color].[color=#9ea9bb]\nPrawidłową odpowiedzią było słowo:[/color] [color=#409C36]{self.current_word}[/color]\n\n[color=#9ea9bb]{word_meanings}[/color]'
+        print(self.lost_dialog)
         #Display dialog window stating the answer was wrong
-        word_lost = MDDialog(text=lost_dialog)
+        word_lost = MDDialog(
+            #text=lost_dialog
+            size_hint=[0.9,None],
+            type ="custom",
+            content_cls=WordMeaning(),)
         word_lost.open()
 
     def delete_last_user_letter(self):
