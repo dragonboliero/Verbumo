@@ -12,6 +12,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.label import MDLabel
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.button import MDFlatButton
+from kivy.metrics import dp
 import functions as func
     
 
@@ -21,14 +22,18 @@ class SManager(ScreenManager):
 class GameScreen(Screen):
     pass
 
+class GameRules(BoxLayout):
+    pass
+
+class WordMeaning(BoxLayout):
+    pass
+
 class Content(BoxLayout):
     pass
 
 class ResetContent(BoxLayout):
     pass
 
-class WordMeaning(BoxLayout):
-    pass
 
 #Main App
 class Verbumo (MDApp):
@@ -571,22 +576,21 @@ class Verbumo (MDApp):
 
                 #If the word is not in the dictionary.
                 else:
-                    word_not_in_dictionary = MDDialog(text='Słowo nie znajduje się w słowniku! Podaj poprawne słowo.')
+                    word_not_in_dictionary = MDDialog(text='Podane słowo nie znajduje się w słowniku aplikacji. Podaj inne słowo.', size_hint=[0.9,None], height = dp(250))
                     word_not_in_dictionary.open()
         #If the word is shorter than 5 letters.
         else:
-            word_not_complete = MDDialog(text='Słowo musi składać się z 5 liter!')
+            word_not_complete = MDDialog(text='Słowo musi składać się z 5 liter!',size_hint=[0.9,None])
             word_not_complete.open()
       
     def display_word_meaining(self):
         #Create a pop up displaying what was the correct answer
         word_meanings = func.get_dictionary_entry(self.current_word)
-        self.lost_dialog = f'[color=#D91616]Nie udało się odgadnąć hasła[/color].[color=#9ea9bb]\nPrawidłową odpowiedzią było słowo:[/color] [color=#409C36]{self.current_word}[/color]\n\n[color=#9ea9bb]{word_meanings}[/color]'
+        self.lost_dialog = f'[color=#9ea9bb]\nPrawidłową odpowiedzią było słowo:[/color] [color=#409C36]{self.current_word}[/color]\n\n[color=#9ea9bb]{word_meanings}[/color]'
         print(self.lost_dialog)
         #Display dialog window stating the answer was wrong
         word_lost = MDDialog(
-            #text=lost_dialog
-            size_hint=[0.9,None],
+            title="[color=#D91616]Nie udało się odgadnąć hasła[/color]",
             type ="custom",
             content_cls=WordMeaning(),)
         word_lost.open()
@@ -738,15 +742,10 @@ class Verbumo (MDApp):
         self.root.get_screen('GameScreen').ids.letter_m.disabled = False
 
     def display_info(self):
-        how_to_play = MDDialog(title="[color=#9ea9bb][b][i]Zasady gry[/b][/i][/color]",text="""
-Twoim celem jest odgadnięcie [b][i]hasła[/i][/b]. Masz na to [b][i]6[/i][/b] prób.
-
-Jeśli nie uda ci się odgadnąć hasła, to podane przez ciebie litery zostaną podświetlone.
-
-Na [b][i][color=#409C36]zielono[/color][/b][/i] jeśli znajdują się w haśle w tym samym miejscu, na [b][i][color=#FFCD00]żółto[/color][/b][/i] jeśli znajdują się w haśle, ale na innym miejscu, lub na [b][i][color=#000000]czarno[/color][/b][/i] jeśli nie znajdują się w haśle.
-
-Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko zostało to dokonane.
-        """,size_hint_y=None)
+        how_to_play = MDDialog(title="[color=#9ea9bb][b][i]Zasady gry[/b][/i][/color]",
+        size_hint=[0.9, None],
+        type="custom",
+        content_cls=GameRules(),)
         how_to_play.open()
 
     def word_reset_dialog(self):

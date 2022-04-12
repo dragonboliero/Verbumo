@@ -8,21 +8,28 @@ SManager:
 <MDLabel>:
     color:(1,1,1,1)
 
+<GameRules>
+    orientation:"vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: dp(250)
+    ScrollView:
+        MDLabel:
+            markup:True
+            text:"[color=#9ea9bb]Twoim celem jest odgadnięcie [b][i]hasła[/i][/b]. Masz na to [b][i]6[/i][/b] prób. Jeśli nie uda ci się odgadnąć hasła, to podane przez ciebie litery zostaną podświetlone. Na[/color] [b][i][color=#409C36]zielono[/color][/b][/i] [color=#9ea9bb]jeśli znajdują się w haśle w tym samym miejscu, na[/color] [b][i][color=#FFCD00]żółto[/color][/b][/i] [color=#9ea9bb]jeśli znajdują się w haśle, ale na innym miejscu, lub na[/color] [b][i][color=#000000]czarno[/color][/b][/i] [color=#9ea9bb]jeśli nie znajdują się w haśle. Po odgadnięciu hasła dostaniesz ilość punktów zależną od tego jak szybko zostało to dokonane.[/color]"
+            size_hint:1,None
+            height:self.texture_size[1]
 <WordMeaning>
     orientation:"vertical"
     spacing: "12dp"
     size_hint_y: None
     height: dp(250)
     ScrollView:
-        GridLayout:
-            size_hint_y:None
-            cols:1
-            row_default_height: root.height*0.2
-            MDLabel:
-                markup:True
-                text:app.lost_dialog
-                size_hint:1,None
-                height:self.texture_size[1]
+        MDLabel:
+            markup:True
+            text:app.lost_dialog
+            size_hint:1,None
+            height:self.texture_size[1]
 <Content>
     orientation: "vertical"
     spacing: "12dp"
